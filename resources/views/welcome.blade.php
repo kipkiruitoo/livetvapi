@@ -993,7 +993,7 @@
                                 # code...
                                 $datetime = \Carbon\Carbon::createFromTimeString($game['datetime']);
                             }else{
-                                $datetime = \Carbon\Carbon::now();
+                                $datetime = "Live";
                             }
 
                             
@@ -1002,7 +1002,7 @@
                         @endphp
 
 
-                        <a href="{{ \Carbon\Carbon::now()->diffInHours($datetime) > 2 ?  '#' : route('live') . '?li=' . urlencode($encryption) }}"
+                        <a href="{{ $datetime != 'Live' && \Carbon\Carbon::now()->diffInHours($datetime) > 2 ?  '#' : route('live') . '?li=' . urlencode($encryption) }}"
                             class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
 
 
@@ -1020,11 +1020,17 @@
                                     </p>
                                 </div>
                                 <div class="row-span-2 col-start-2 row-start-1">
-                                    <p class="mt-4 text-gray-100 dark:text-white text-sm leading-relaxed">
+                                    @if ($datetime == "Live")
+                                    <p style="color: rgb(225 29 72)" class="mt-4  dark:text-rose-600 text-md leading-relaxed">
+                                       Live</p>
+                                    @else
+                                          <p class="mt-4 text-gray-100 dark:text-white text-sm leading-relaxed">
                                         {{ $datetime->toFormattedDateString() }}</p>
                                     <p class="mt-4 text-gray-100 dark:text-white text-sm leading-relaxed">
                                         {{ $datetime->modify('+3 hours')->format('H:i') }}</p>
                                     </p>
+                                    @endif
+                                  
                                 </div>
                             </div>
 
