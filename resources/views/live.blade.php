@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://www.premierleague.com/button/v1/media/images/favicon.ico" sizes="32x32">
+    <link rel="shortcut icon" href="https://www.premierleague.com/resources/rebrand/v7.133.4/i/favicon/favicon.ico" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{$game->team1}} vs {{$game->team2 }} - Exergyent Free Live Premier Leauge Streaming</title>
     <meta name="description" content="Exergyent Free Live Sports Stream live | {{$game->team1}} vs {{$game->team2 }}, live tv , Exergyent live today s matches , watch live matches on Exergyent life or Exergyent live "/>
@@ -31,7 +31,7 @@
 <body class="antialiased">
     <div class="relative  min-h-screen min-w-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         <div class="flex justify-center max-w-8xl mx-auto  lg:p-8">
-            <img src="{{$game->team1icon}}" alt=""> <span class="text:black dark:text-white p-6"> vs </span> <img src="{{$game->team2icon}}" alt="">
+            <img  src="{{$game->team1icon}}" alt="{{$game->team1}}"> <span class="text:black dark:text-white p-6"> vs </span> <img src="{{$game->team2icon}}" alt="{{$game->team2icon}}">
         </div>
      
             <div class="p-6 rounded">

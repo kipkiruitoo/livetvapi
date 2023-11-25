@@ -10,6 +10,7 @@
         content="Exergyent Free Live Sports Stream live | live tv , Exergyent live today s matches , watch live matches on Exergyent life or Exergyent live " />
     <meta name="robots" content="follow, index" />
     <link rel="canonical" href="https://live.exergyents.xyz/" />
+    <link rel="shortcut icon" href="https://www.premierleague.com/resources/rebrand/v7.133.4/i/favicon/favicon.ico" />
     <meta property="og:locale" content="en_EN" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content=" Exergyent Tv - Free Live Sports Stream   " />
