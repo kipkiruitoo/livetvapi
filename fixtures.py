@@ -23,6 +23,26 @@ def get_fixtures_list():
     return fixlis
 
 
+def get_streams(team1, team2):
+    streams = []
+    link = f"https://sportsonline.gl/prog.txt"
+    source = requests.get(link).text
+
+    lines = re.split(r"\r\n|\r|\n", source)
+    for line in lines:
+        
+        if team1 in line and team2 in line:
+           linelist = line.split("| ")
+           url = linelist[-1]
+           streams.append(url)
+
+        
+
+
+    return streams
+
+
+
 def get_matches_list(fixlis):
     matches = []
     for i in range(len(fixlis)):
@@ -38,10 +58,11 @@ def get_matches_list(fixlis):
         match = {}
         match["team1"] = team1
         match["team2"] = team2
-        match["date"] = date.text
-        match["time"] = time["datetime"]
+        
+        match["datetime"] = time["datetime"]
         match["team1icon"] = teamicons[0]['src']
         match["team2icon"] =  teamicons[1]['src']
+        match["streams"] = get_streams(team1=team1, team2=team2)
         
         
         matches.append(match)

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+use Illuminate\Support\Facades\File;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,32 +19,11 @@ use Illuminate\Http\Response;
 
 Route::get('/', function () {
 
-    $response = Http::get('https://sportsonline.gl/prog.txt');
-    // echo($response->body());
+    $fixtures = collect(File::json("fixtures.json"));
 
-    $programms = $response->body();
+    // dd(collect($fixtures[0]));
 
-    $linearray = preg_split('/\r\n|\r|\n/',$programms);
-
-    $urlarrays = preg_grep("/^[0-9].*/", $linearray);
-
-    $urls = array();
-
-    foreach ($urlarrays as $url){
-        $a = explode("| ", $url);
-
-        $sm_array = explode("   ",$a[0]);
-
-        $fa = [
-            "time" => $sm_array[0],
-            "title" => $sm_array[1],
-            "url" => end($a)
-        ];
-
-        array_push($urls, $fa);
-    }
-
-    return view('welcome')->with(['games' => collect($urls)]);
+    return view('welcome')->with(['fixtures' => collect($fixtures)]);
 })->name('welcome');
 
 Route::get("/live", function (Request $request) {
@@ -72,7 +51,7 @@ Route::get("/live", function (Request $request) {
 
     // dd($decryption);
 
-    return view('live')->with(['url' => $decryption]);
+    return view('live')->with(['game' => json_decode($decryption)]);
     }else{
         return redirect()->route('welcome');
     }

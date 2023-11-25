@@ -1,10 +1,27 @@
+@php
+    // dd($game->streams[0]);
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://www.premierleague.com/button/v1/media/images/favicon.ico" sizes="32x32">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Watch Sports For Free - Live</title>
+    <title>{{$game->team1}} vs {{$game->team2 }} - Exergyent Free Live Premier Leauge Streaming</title>
+    <meta name="description" content="Exergyent Free Live Sports Stream live | {{$game->team1}} vs {{$game->team2 }}, live tv , Exergyent live today s matches , watch live matches on Exergyent life or Exergyent live "/>
+    <meta name="robots" content="follow, index"/>
+    <link rel="canonical" href="https://live.exergyents.xyz/" />
+    <meta property="og:locale" content="en_EN" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content=" Exergyent Tv - Free Live Sports Stream {{$game->team1}} vs {{$game->team2 }}  " />
+    <meta property="og:description" content="Exergyent Free Live Sports Stream live | {{$game->team1}} vs {{$game->team2 }} , live tv , Exergyent live today s matches , watch live matches on Exergyent life or Exergyent live " />
+    <meta property="og:url" content="https://live.exergyents.xyz/" />
+    <meta property="og:site_name" content=" Exergyent Tv - Free Live Sports Stream   " />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content=" Exergyent Tv - Free Live Sports Stream   " />
+    <meta name="twitter:description" content="Exergyent Free Live Sports Stream live | {{$game->team1}} vs {{$game->team2 }} , live tv , Exergyent live today s matches , watch live matches on Exergyent life or Exergyent live " />
     
         <!-- Styles -->
         <style>
@@ -13,9 +30,12 @@
 </head>
 <body class="antialiased">
     <div class="relative  min-h-screen min-w-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+        <div class="flex justify-center max-w-8xl mx-auto  lg:p-8">
+            <img src="{{$game->team1icon}}" alt=""> <span class="text:black dark:text-white p-6"> vs </span> <img src="{{$game->team2icon}}" alt="">
+        </div>
      
             <div class="p-6 rounded">
-                 <iframe style="height: 80vh" allowfullscreen="allowfullscreen" loading="lazy" allow="autoplay" scrolling="no" width="100%" height="100%" src="{{$url}}" frameborder="0"></iframe>
+                 <iframe style="height: 80vh" allowfullscreen="allowfullscreen" loading="lazy" allow="autoplay" scrolling="no" width="100%" height="100%" src="{{$game->streams[0]}}" frameborder="0"></iframe>
             </div>
            
           
