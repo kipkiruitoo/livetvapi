@@ -48,10 +48,16 @@ Route::get("/live", function (Request $request) {
     $decryption=openssl_decrypt ($url, $ciphering, 
             $decryption_key, $options, $decryption_iv);
 
+    $game = json_decode($decryption);
 
+    if (isset($game->streams[0])) {
+        return view('live')->with(['game' => $game ]);
+    }
+
+    return redirect()->route('welcome');
     // dd($decryption);
 
-    return view('live')->with(['game' => json_decode($decryption)]);
+    
     }else{
         return redirect()->route('welcome');
     }
