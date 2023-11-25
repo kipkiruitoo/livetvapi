@@ -989,8 +989,15 @@
                             $encryption = openssl_encrypt(json_encode($game), $ciphering, $encryption_key, $options, $encryption_iv);
 
                             // dd($encryption);
+                            if (isset($game['datetime'])) {
+                                # code...
+                                $datetime = \Carbon\Carbon::createFromTimeString($game['datetime']);
+                            }else{
+                                $datetime = \Carbon\Carbon::now();
+                            }
 
-                            $datetime = \Carbon\Carbon::createFromTimeString($game['datetime']);
+                            
+                            
 
                         @endphp
 

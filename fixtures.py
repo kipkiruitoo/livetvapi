@@ -59,7 +59,9 @@ def get_matches_list(fixlis):
         match["team1"] = team1
         match["team2"] = team2
         
-        match["datetime"] = time["datetime"]
+        if time is not None:
+            match["datetime"] = time["datetime"]
+        
         match["team1icon"] = teamicons[0]['src']
         match["team2icon"] =  teamicons[1]['src']
         match["streams"] = get_streams(team1=team1, team2=team2)
