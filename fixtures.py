@@ -54,7 +54,7 @@ li  = get_fixtures_list()
 
 mat  = get_matches_list(li)
 
-with open("livetv/public/fixtures_data.json", "w") as file:
+with open("./public/fixtures.json", "w") as file:
     json.dump(mat, file)
 
 print("Data stored successfully!")
