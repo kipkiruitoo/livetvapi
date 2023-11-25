@@ -855,7 +855,7 @@
                 vs </span> <img src="{{ $game->team2icon }}" alt="{{ $game->team2icon }}">
         </div>
         <div>
-            <select id="servers" onselect="newSrc();">
+            <select id="servers" onchange="newSrc();">
                 @foreach ($game->streams as $key => $stream)
                     <option value="{{ $stream }}">Server {{ $key }}</option>
                 @endforeach
