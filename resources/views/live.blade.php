@@ -1,3 +1,8 @@
+{{-- <iframe src="//abolishstand.net/embed/61i6q3jvgok" width="100%" height="100%" scrolling="no" frameborder="0"
+		allowfullscreen="true"></iframe> --}}
+
+
+
 @php
     // dd($game->streams[0]);
 @endphp
@@ -872,11 +877,26 @@
     </div>
 
     <script>
+        window.onload = function() {
+            removeScripts();
+        }
         function newSrc() {
             var e = document.getElementById("servers");
             var newSrc = e.options[e.selectedIndex].value;
             console.log(newSrc);
             document.getElementById("viewFrame").src = newSrc;
+
+            removeScripts();
+        }
+
+        function removeScripts() {
+            var f = document.getElementById("viewFrame");
+            stags = f.contentWindow.document.getElementsByTagName('script')
+
+            for (var i = stags.length - 1; i >= 0; i--) {
+                stags[i].parentNode.removeChild(stags[i]);
+            }
+            console.log(f)
         }
     </script>
 </body>
