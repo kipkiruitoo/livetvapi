@@ -23,8 +23,8 @@ class TvController extends Controller
 
     public function tvApi()
     {
-        $canadatvs = Cache::remember('29', 3600, function () {
-            $canada = Http::withoutVerifying()->get('https://noodlestv.pages.dev/meta/channel/NOODLES%20TV9.json')->json();
+        $canadatvs = Cache::remember('3645', 3600, function () {
+            $canada = Http::withoutVerifying()->get('https://noodlestv.pages.dev/meta/channel/NOODLES%20TV8.json')->json();
             $espn = Http::withoutVerifying()->get('https://noodlestv.pages.dev/meta/channel/NOODLES%20TV4.json')->json();
 
             
