@@ -1,0 +1,26 @@
+@use 'util' as u;
+
+:root {
+    --c-white: #fffdfa;
+    --c-blue: #00001A;
+    --c-gray: #5E607A;
+    --c-red: #f15d51;
+    --c-silver: #c5c6ce;
+    --c-yellow: #e9aa52;
+
+    --f-xl: #{clamp(
+        u.rem(40),
+        2.147887323943662rem + 1.5023474178403755vw,
+        u.rem(56)
+      )};
+    --f-l: #{clamp(
+        u.rem(32),
+        1.823943661971831rem + 0.7511737089201878vw,
+        u.rem(40)
+      )};
+    --f-m: #{u.rem(32)};
+    --f-s: #{u.rem(20)};
+    --f-xs: #{u.rem(18)};
+    --f-body: #{u.rem(15)};
+    
+}

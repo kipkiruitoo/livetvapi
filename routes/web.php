@@ -26,6 +26,16 @@ Route::get('/', function () {
     return view('welcome')->with(['fixtures' => collect($fixtures)]);
 })->name('welcome');
 
+
+Route::get('/news', function () {
+
+    $fixtures = collect(File::json("fixtures.json"));
+
+    // dd(collect($fixtures[0]));
+
+    return view('news');
+})->name('welcome');
+
 Route::get("/live", function (Request $request) {
 
     if (isset($_GET['li']) ){
