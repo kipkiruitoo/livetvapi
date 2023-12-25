@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
+use App\Http\Controllers\TvController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,3 +74,6 @@ Route::get("/live", function (Request $request) {
     }
 
 })->name('live');
+
+
+Route::get('/tv', [TvController::class, 'index'])->name('tv');

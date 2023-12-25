@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TvController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
@@ -47,3 +48,5 @@ Route::get('/tv', function (Request $request){
 
     return response()->json($urls);
 });
+
+Route::get('/tv/canada', [TvController::class, 'tvApi']);
