@@ -23,16 +23,25 @@ class TvController extends Controller
 
     public function tvApi()
     {
-        $canadatvs = Cache::remember('canadatvs', 3600, function () {
-            return Http::withoutVerifying()->get('https://noodlestv.pages.dev/meta/channel/NOODLES%20TV4.json')->json();
+        $canadatvs = Cache::remember('29', 3600, function () {
+            $canada = Http::withoutVerifying()->get('https://noodlestv.pages.dev/meta/channel/NOODLES%20TV9.json')->json();
+            $espn = Http::withoutVerifying()->get('https://noodlestv.pages.dev/meta/channel/NOODLES%20TV4.json')->json();
+
+            
+            return [$canada, $espn];
         });
 
-        $canadalinks = $canadatvs['meta']['videos'];
+
+        // dd();
+
+        $canadalinks = array_merge($canadatvs[0]['meta']['videos'], $canadatvs[1]['meta']['videos']);
+
+        // dd(count($canadalinks));
 
         foreach ($canadalinks as $key => $link) {
 
             // dd('https://noodlestv.pages.dev/stream/channel/' . $link['id'] . '.json');
-            $l = Cache::remember('canadals-' . $link['id'], 3600, function () use ($link) {
+            $l = Cache::remember('nnklj-' . $link['id'], 3600, function () use ($link) {
                 return Http::withoutVerifying()->get('https://noodlestv.pages.dev/stream/channel/' . $link['id'] . '.json')->json();
             });
 
