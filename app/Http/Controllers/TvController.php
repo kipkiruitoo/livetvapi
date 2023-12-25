@@ -41,6 +41,6 @@ class TvController extends Controller
             $canadalinks[$key]['streams'] = $l['streams'];
         }
 
-        return response()->json(["streams" => $canadalinks, "status" => "Success"]);
+        return response()->json($canadalinks);
     }
 }
